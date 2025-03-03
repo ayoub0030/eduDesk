@@ -7,9 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { TranscriptEntry, transcriptStore } from "@/services/transcript-store";
 import { Send, Bot, User, Loader2, Info, X, AlertCircle, FileText, Trash2, RefreshCw, Youtube } from "lucide-react";
 import { streamGeminiResponse } from "@/services/gemini-ai";
-import { FlipCards } from "./flip-cards";
 import { VideoGenerationForm } from "./video-generation-form";
-import { PythonExercises } from "./python-exercises";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -60,7 +58,7 @@ export function MultiVideoChat() {
       setMessages([
         {
           role: "assistant",
-          content: "Hello! I'm your multi-video transcript analyst. First, select up to 3 videos to analyze, then ask me any questions about them.",
+          content: "Hello! I'm your study companion. I can help you understand concepts, create summaries, and answer your study-related questions. Select up to 3 videos to analyze, then let's start learning together!",
         },
       ]);
     }
@@ -240,13 +238,13 @@ export function MultiVideoChat() {
   };
 
   return (
-    <div className="border border-indigo-700/30 rounded-xl overflow-hidden shadow-lg bg-indigo-900/30 mt-6">
+    <div className="border border-blue-700/30 rounded-xl overflow-hidden shadow-lg bg-blue-900/30 mt-6">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-indigo-700/30 bg-indigo-900/70">
+      <div className="flex items-center justify-between p-4 border-b border-blue-700/30 bg-blue-900/70">
         <div className="flex items-center">
           <Bot className="h-5 w-5 mr-2 text-yellow-400" />
           <h3 className="font-medium text-white">Multi-Video Analysis</h3>
-          <div className="ml-2 px-2 py-0.5 bg-indigo-700/50 text-indigo-100 rounded-full text-xs border border-indigo-600/30">
+          <div className="ml-2 px-2 py-0.5 bg-blue-700/50 text-blue-100 rounded-full text-xs border border-blue-600/30">
             Gemini AI
           </div>
         </div>
@@ -256,7 +254,7 @@ export function MultiVideoChat() {
             size="sm"
             onClick={clearChat}
             disabled={messages.length <= 1}
-            className="h-8 text-xs bg-indigo-800/50 border-indigo-600/30 text-indigo-200 hover:bg-indigo-700/50 hover:text-white"
+            className="h-8 text-xs bg-blue-800/50 border-blue-600/30 text-blue-200 hover:bg-blue-700/50 hover:text-white"
           >
             <Trash2 className="h-3.5 w-3.5 mr-1" /> Clear Chat
           </Button>
@@ -264,28 +262,28 @@ export function MultiVideoChat() {
       </div>
       
       {/* Transcript Selector - Now placed in a collapsible section */}
-      <div className="border-b border-indigo-700/30 bg-indigo-900/60">
+      <div className="border-b border-blue-700/30 bg-blue-900/60">
         <div className="p-3 flex justify-between items-center cursor-pointer" 
              onClick={() => setIsTranscriptSelectorOpen(!isTranscriptSelectorOpen)}>
           <div className="flex items-center">
             <FileText className="h-4 w-4 mr-2 text-yellow-400" />
-            <h4 className="font-medium text-indigo-100">Available Transcripts</h4>
-            <span className="ml-2 text-xs text-indigo-300">
+            <h4 className="font-medium text-blue-100">Available Transcripts</h4>
+            <span className="ml-2 text-xs text-blue-300">
               {selectedVideos.length} of {storedVideos.length} selected
             </span>
           </div>
           <div className={`transform transition-transform ${isTranscriptSelectorOpen ? 'rotate-180' : ''}`}>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-300" />
+              <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-300" />
             </svg>
           </div>
         </div>
         
         {/* Collapsible Transcript List */}
         {isTranscriptSelectorOpen && (
-          <div className="p-3 border-t border-indigo-700/30 bg-indigo-900/30">
+          <div className="p-3 border-t border-blue-700/30 bg-blue-900/30">
             {storedVideos.length === 0 ? (
-              <div className="text-sm text-indigo-300 p-3 bg-indigo-800/30 rounded border border-indigo-700/30 text-center">
+              <div className="text-sm text-blue-300 p-3 bg-blue-800/30 rounded border border-blue-700/30 text-center">
                 No video transcripts available. View transcripts for videos first.
               </div>
             ) : (
@@ -295,7 +293,7 @@ export function MultiVideoChat() {
                     <div 
                       key={video.videoId}
                       className={`p-2 rounded border transition-colors flex items-start gap-2 ${
-                        video.selected ? 'bg-indigo-700/40 border-indigo-500/50' : 'bg-indigo-800/30 border-indigo-700/30 hover:bg-indigo-800/50'
+                        video.selected ? 'bg-blue-700/40 border-blue-500/50' : 'bg-blue-800/30 border-blue-700/30 hover:bg-blue-800/50'
                       }`}
                     >
                       <Checkbox 
@@ -303,7 +301,7 @@ export function MultiVideoChat() {
                         checked={video.selected}
                         onCheckedChange={() => toggleVideoSelection(video.videoId)}
                         disabled={!video.selected && selectedVideos.length >= 3}
-                        className="mt-1 border-indigo-400 data-[state=checked]:bg-yellow-400 data-[state=checked]:text-indigo-900"
+                        className="mt-1 border-blue-400 data-[state=checked]:bg-yellow-400 data-[state=checked]:text-blue-900"
                       />
                       <div className="flex-1 min-w-0">
                         <label 
@@ -312,18 +310,18 @@ export function MultiVideoChat() {
                         >
                           {video.title || `Video ${video.videoId.substring(0, 8)}...`}
                         </label>
-                        <div className="flex items-center text-xs text-indigo-300">
+                        <div className="flex items-center text-xs text-blue-300">
                           <Youtube className="h-3 w-3 mr-1 text-red-400" />
                           <span className="truncate">{video.videoId}</span>
                         </div>
-                        <div className="text-xs text-indigo-300 mt-1">
+                        <div className="text-xs text-blue-300 mt-1">
                           {new Date(video.fetchedAt).toLocaleDateString()}
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-3 text-xs text-indigo-300 flex items-center">
+                <div className="mt-3 text-xs text-blue-300 flex items-center">
                   <Info className="h-3.5 w-3.5 mr-1 text-yellow-400" />
                   <p>Select up to 3 videos for multi-transcript analysis</p>
                 </div>
@@ -332,7 +330,7 @@ export function MultiVideoChat() {
                     variant="ghost" 
                     size="sm" 
                     onClick={refreshTranscriptList}
-                    className="h-7 text-xs text-indigo-300 hover:text-white hover:bg-indigo-800/50"
+                    className="h-7 text-xs text-blue-300 hover:text-white hover:bg-blue-800/50"
                   >
                     <RefreshCw className="h-3.5 w-3.5 mr-1" /> Refresh List
                   </Button>
@@ -344,8 +342,8 @@ export function MultiVideoChat() {
       </div>
 
       {/* Video selection info - Now a prominent banner */}
-      <div className={`p-3 border-b border-indigo-700/30 flex items-start ${
-        selectedVideos.length > 0 ? 'bg-indigo-800/30 text-indigo-100' : 'bg-yellow-400/10 text-yellow-300'
+      <div className={`p-3 border-b border-blue-700/30 flex items-start ${
+        selectedVideos.length > 0 ? 'bg-blue-800/30 text-blue-100' : 'bg-yellow-400/10 text-yellow-300'
       }`}>
         {selectedVideos.length > 0 ? (
           <div className="flex-1">
@@ -359,11 +357,11 @@ export function MultiVideoChat() {
               {storedVideos
                 .filter(v => v.selected)
                 .map(v => (
-                  <span key={v.videoId} className="inline-flex items-center px-2 py-0.5 rounded text-xs bg-indigo-700/50 text-indigo-100">
+                  <span key={v.videoId} className="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-700/50 text-blue-100">
                     <span className="truncate max-w-[150px]">{v.title || `Video ${v.videoId.substring(0, 8)}...`}</span>
                     <button 
                       onClick={() => toggleVideoSelection(v.videoId)}
-                      className="ml-1 text-indigo-300 hover:text-white"
+                      className="ml-1 text-blue-300 hover:text-white"
                     >
                       <X className="h-3 w-3" />
                     </button>
@@ -396,7 +394,7 @@ export function MultiVideoChat() {
       )}
 
       {/* Chat Interface */}
-      <div className="flex flex-col h-[400px] bg-indigo-950/70">
+      <div className="flex flex-col h-[400px] bg-blue-950/70">
         {/* Messages area */}
         <div className="flex-1 overflow-y-auto p-4 space-y-5">
           {messages.map((message, index) => (
@@ -407,17 +405,17 @@ export function MultiVideoChat() {
               <div 
                 className={`max-w-[90%] p-4 shadow-md ${
                   message.role === 'user' 
-                    ? 'bg-indigo-600 text-white border border-indigo-500 rounded-2xl rounded-br-sm' 
+                    ? 'bg-blue-600 text-white border border-blue-500 rounded-2xl rounded-br-sm' 
                     : message.isError 
                       ? 'bg-red-900/20 text-red-400 border border-red-800/30 rounded-2xl rounded-bl-sm' 
-                      : 'bg-indigo-800/40 text-indigo-100 border border-indigo-700/30 rounded-2xl rounded-bl-sm'
+                      : 'bg-blue-800/40 text-blue-100 border border-blue-700/30 rounded-2xl rounded-bl-sm'
                 }`}
               >
                 <div className={`flex items-center mb-1.5 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {message.role === 'user' ? (
                     <>
                       <span className="font-medium">You</span>
-                      <User className="h-4 w-4 ml-1.5 text-indigo-300" />
+                      <User className="h-4 w-4 ml-1.5 text-blue-300" />
                     </>
                   ) : (
                     <>
@@ -444,7 +442,7 @@ export function MultiVideoChat() {
         </div>
 
         {/* Input area */}
-        <div className="border-t border-indigo-700/30 p-3 bg-indigo-900/50">
+        <div className="border-t border-blue-700/30 p-3 bg-blue-900/50">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <Input
               ref={inputRef}
@@ -455,13 +453,13 @@ export function MultiVideoChat() {
               }
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="flex-1 bg-indigo-800/30 border-indigo-600/30 text-indigo-100 placeholder:text-indigo-400/50 focus:ring-indigo-500 focus:border-indigo-500"
+              className="flex-1 bg-blue-800/30 border-blue-600/30 text-blue-100 placeholder:text-blue-400/50 focus:ring-blue-500 focus:border-blue-500"
               disabled={loading || selectedVideos.length === 0}
             />
             <Button 
               type="submit" 
               disabled={loading || !input.trim() || selectedVideos.length === 0}
-              className="shrink-0 bg-indigo-600 hover:bg-indigo-700 text-white"
+              className="shrink-0 bg-blue-600 hover:bg-blue-700 text-white"
             >
               {loading ? (
                 <>
@@ -478,16 +476,6 @@ export function MultiVideoChat() {
           </form>
         </div>
       </div>
-
-      {/* Study Flip Cards */}
-      {selectedVideos.length > 0 && messages.length > 1 && (
-        <FlipCards transcriptContext={getCombinedTranscriptContext()} />
-      )}
-
-      {/* Python Exercises */}
-      {selectedVideos.length > 0 && messages.length > 1 && (
-        <PythonExercises transcriptContext={getCombinedTranscriptContext()} />
-      )}
 
       {/* Video Generator (shown below chat when active) */}
       {showVideoGenerator && (
