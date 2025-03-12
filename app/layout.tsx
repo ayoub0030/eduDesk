@@ -7,8 +7,8 @@ import { OcrProvider } from "@/lib/ocr-context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "StudyTube - Learning Platform",
-  description: "Interactive learning platform for students and teachers",
+  title: "EduDesk Pro",
+  description: "Advanced AI-powered learning platform for professional education",
 };
 
 export default function RootLayout({

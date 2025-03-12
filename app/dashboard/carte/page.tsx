@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Map, Navigation, Search, MapPin, Filter, Layers, Bookmark, Circle, Star, BookOpen, Code } from "lucide-react";
 import { FlipCards } from "@/components/flip-cards";
@@ -33,7 +33,7 @@ export default function CartePage() {
   // Update transcriptContext when selectedVideos change
   useEffect(() => {
     updateTranscriptContext();
-  }, [selectedVideos]);
+  }, [selectedVideos, updateTranscriptContext]);
 
   // Toggle video selection
   const toggleVideoSelection = (videoId: string) => {
@@ -61,7 +61,7 @@ export default function CartePage() {
   };
 
   // Get combined transcript content from selected videos
-  const updateTranscriptContext = () => {
+  const updateTranscriptContext = useCallback(() => {
     let combinedContext = "";
     
     // Add each selected video's transcript to the context
@@ -72,7 +72,7 @@ export default function CartePage() {
     });
     
     setTranscriptContext(combinedContext);
-  };
+  }, [storedVideos, selectedVideos]);
   
   const places = {
     campus: [

@@ -27,18 +27,20 @@ export function TranscriptChat({ transcript, videoTitle, onClose }: TranscriptCh
   const [apiKeyError, setApiKeyError] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isInitialized = useRef(false);
 
   // Add system welcome message when component mounts
   useEffect(() => {
-    if (messages.length === 0) {
+    if (!isInitialized.current) {
       setMessages([
         {
           role: "assistant",
           content: `Hello! I'm your video transcript analyst. I can answer questions about "${videoTitle || 'this video'}" based on its transcript. What would you like to know?`,
         },
       ]);
+      isInitialized.current = true;
     }
-  }, [videoTitle, messages.length]);
+  }, [videoTitle]);
 
   // Scroll to bottom when new messages are added
   useEffect(() => {

@@ -103,9 +103,9 @@ export async function GET(request: NextRequest) {
         ...video,
         // Add Screenpipe metadata if available
         viewedAt: latestItem?.content.timestamp || new Date().toISOString(),
-        appName: latestItem?.content.app_name || 'chrome',
-        windowName: latestItem?.content.window_name || '',
-        frameId: latestItem?.content.frame_id
+        appName: latestItem?.content?.['app_name' as keyof typeof latestItem.content] || 'chrome',
+        windowName: latestItem?.content?.['window_name' as keyof typeof latestItem.content] || '',
+        frameId: latestItem?.content?.['frame_id' as keyof typeof latestItem.content]
       };
     });
 

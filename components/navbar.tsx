@@ -92,13 +92,13 @@ export function Navbar() {
             href="/dashboard" 
             className="flex items-center gap-2 font-bold text-gray-900"
           >
-            <span className="bg-blue-500 rounded-lg p-1.5">
+            <span className="bg-blue-600 rounded-lg p-1.5">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
                 <path d="M4 2.00004C4 1.44776 4.44772 1.00004 5 1.00004H19C19.5523 1.00004 20 1.44776 20 2.00004V22L12 19L4 22V2.00004Z" />
               </svg>
             </span>
-            <span>StudyTube</span>
-            <span className="text-blue-600 text-xs px-2 py-0.5 rounded-full bg-blue-50 font-medium hidden sm:inline-block">Beta</span>
+            <span>EduDesk Pro</span>
+            <span className="text-blue-700 text-xs px-2 py-0.5 rounded-full bg-blue-50 font-medium hidden sm:inline-block">Pro</span>
           </Link>
           
           {/* User type badge */}

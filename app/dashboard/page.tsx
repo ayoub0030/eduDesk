@@ -111,7 +111,7 @@ export default function Dashboard() {
     );
   }
 
-  // Get today's classes
+  // Get today&apos;s classes
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   const todayClasses = classSchedule.filter(cls => cls.day === today);
 
@@ -150,11 +150,11 @@ export default function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Today's Classes */}
+        {/* Today&apos;s Classes */}
         <div className="lg:col-span-2">
           <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md mb-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold" style={{ color: blueKingColor }}>Today's Class Schedule</h2>
+              <h2 className="text-xl font-semibold" style={{ color: blueKingColor }}>Today&apos;s Class Schedule</h2>
               <div className="text-sm font-medium px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
                 {today}
               </div>

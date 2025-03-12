@@ -60,7 +60,7 @@ export function AuthScreen() {
     <div className="flex items-center justify-center h-screen w-full bg-white">
       <div className="border-2 border-black rounded-3xl p-8 max-w-md w-full mx-auto text-center">
         <h1 className="text-3xl font-bold mb-8">
-          welcome to <span className="text-blue-500">eduLoc</span>
+          welcome to <span className="text-blue-500">EduDesk</span>
         </h1>
         
         {/* Toggle Switch */}
@@ -72,7 +72,7 @@ export function AuthScreen() {
                 !isTeacher ? "text-white" : "text-black"
               }`}
             >
-              S
+              
             </button>
             <button
               onClick={() => setIsTeacher(true)}

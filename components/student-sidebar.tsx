@@ -72,7 +72,7 @@ export function StudentSidebar() {
   return (
     <div className="h-screen w-[200px] bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0 z-10">
       <div className="p-4 border-b border-gray-200">
-        <h2 className="font-bold text-xl" style={{ color: blueKingColor }}>eduLoc</h2>
+        <h2 className="font-bold text-xl" style={{ color: blueKingColor }}></h2>
       </div>
       
       <nav className="flex-1 p-4 space-y-2 overflow-y-auto">

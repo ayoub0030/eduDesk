@@ -37,6 +37,7 @@ export function MultiVideoChat() {
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isInitialized = useRef(false);
 
   // Load stored transcripts when component mounts
   useEffect(() => {
@@ -54,15 +55,16 @@ export function MultiVideoChat() {
 
   // Add system welcome message when component mounts
   useEffect(() => {
-    if (messages.length === 0) {
+    if (!isInitialized.current) {
       setMessages([
         {
           role: "assistant",
           content: "Hello! I'm your study companion. I can help you understand concepts, create summaries, and answer your study-related questions. Select up to 3 videos to analyze, then let's start learning together!",
         },
       ]);
+      isInitialized.current = true;
     }
-  }, [messages.length]);
+  }, []);
 
   // Scroll to bottom when new messages are added
   useEffect(() => {
