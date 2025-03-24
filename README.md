@@ -1,68 +1,134 @@
-# screenpipe playground
 
-A flexible playground for displaying, testing, and exploring components with their associated code, documentation, and ai prompts.
+# EduDesk
+![a_contemporary_classroom_setting_filled_with_students_diligently_working_on_computers_displaying_a__ricvyvri08wbx2zvvpch_0](https://github.com/user-attachments/assets/da2ba8d8-39e0-4faf-b3e4-86b098fb776f)
 
-<!-- <img width="1312" alt="screenshot of component playground" src="https://github.com/user-attachments/assets/3e5abd07-0a3c-4c3b-8351-5107beb4fb10"> -->
+**EduDesk** is an on-premise monitoring solution designed for educational institutions. It enhances digital security and upholds academic integrity by detecting threats, preventing cheating during exams, and tracking student engagement in real time—all while ensuring data privacy and security.
 
-## features
+---
 
-- **interactive component display**: view rendered components in action
-- **code inspection**: examine the full source code of each component
-- **raw output**: see the raw api responses and data
-- **ai prompt visibility**: view the prompts and context used to generate components
-- **collapsible interface**: toggle component visibility for a cleaner workspace
-- **youtube transcript analysis**: fetch, store, and analyze YouTube video transcripts using Gemini AI
+## Table of Contents
 
-## youtube video analysis with gemini AI
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-This project includes a powerful feature that allows you to:
+---
 
-1. **Extract YouTube video metadata** from OCR data captured by Screenpipe
-2. **Fetch transcripts** from YouTube videos using both YouTube-Transcript API and Supadata API
-3. **Analyze video content** using Google's Gemini AI model
-4. **Ask questions** about video content through a RAG (Retrieval-Augmented Generation) chatbot interface
+## Overview
 
-### Setup for YouTube and Gemini features
+EduDesk is a comprehensive solution for schools aiming to monitor computer activity to maintain a safe digital environment. By analyzing screen and audio activity in real time, EduDesk:
+- Detects potential security threats.
+- Prevents cheating during examinations.
+- Tracks and analyzes student engagement.
+- Processes all data locally, ensuring complete privacy and compliance with strict data protection standards.
 
-To use these features, you need to add the following API keys to your `.env` file:
+This solution integrates seamlessly into existing IT infrastructures, providing an intuitive dashboard that delivers real-time insights and visual analytics.
 
-```
-YOUTUBE_API_KEY=your_youtube_api_key_here
-SUPADATA_API_KEY=your_supadata_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-```
+---
 
-- Get a YouTube API key from the [Google Cloud Console](https://console.cloud.google.com/)
-- Get a Supadata API key from [Supadata](https://www.supadata.io/) (optional)
-- Get a Gemini AI API key from the [Google AI Studio](https://ai.google.dev/)
+## Features
 
-### How to use the YouTube Transcript Analyzer
+- **Real-time security threat detection and alerts:** Identify and respond to potential security breaches as they happen.
+- **Academic integrity enforcement:** Prevent cheating during exams with intelligent monitoring.
+- **Student engagement tracking:** Gain insights into student behavior and engagement for better educational outcomes.
+- **Local data processing:** Ensure data privacy by processing information on-premise.
+- **Intuitive dashboard:** Access real-time insights and visual analytics through a user-friendly interface.
+- **Automatic malware detection and prevention:** Keep school systems secure with proactive malware management.
+- **Behavior analysis:** Identify and flag potential cheating activities through advanced analysis.
 
-1. The application extracts YouTube video information from your screen using OCR
-2. Click the "Transcript" button next to any video to view and save its transcript
-3. In the transcript viewer, click "Analyze with Gemini AI" to open the chat interface
-4. Ask questions about the video content, and the AI will analyze the transcript to provide answers
+---
 
-This RAG-based assistant uses the video transcript as its knowledge base, allowing for accurate and context-aware responses about video content.
+## Technologies
 
-## usage
+EduDesk is built using a modern technology stack including:
 
-the playground allows you to:
+- **Next.js:** For server-side rendering and building performant React applications.
+- **Tailwind CSS:** For rapid UI development with utility-first styling.
+- **Markdown:** To manage and render rich text content.
+- **React:** For building dynamic and interactive user interfaces.
+- **Vercel:** For seamless deployment and hosting.
 
-1. view rendered components in their intended state
-2. inspect the raw output from api calls
-3. study the complete component code
-4. examine the ai prompts and context used to generate components
+---
 
-## component structure
+## Installation
 
-each playground card includes:
-- component title and collapsible interface
-- tabs for different views (rendered output, raw output, code, ai prompt)
-- copy functionality for sharing prompts and context
+To set up EduDesk locally, follow these steps:
 
-## getting started
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ayoub0030/eduDesk.git
+   cd eduDesk
+   bun install
+   bun run dev
 
-1. install this pipe from UI and play with it
-2. follow docs to create your pipe (it will create this app) (https://docs.screenpi.pe/docs/plugins)
-3. modify code from ready-to-use-examples directory
+
+**Usage**
+
+EduDesk provides an intuitive dashboard where administrators can:
+
+Monitor real-time activity on school computers.
+
+Receive instant alerts on potential security threats.
+
+View detailed analytics on student engagement.
+
+Access behavior analysis reports to identify any irregular activities.
+
+For detailed instructions on using the dashboard and configuration options, please refer to the documentation (if available).
+
+Screenshots
+Below are some additional images and screenshots demonstrating EduDesk in action:
+
+![eduDesk (3)](https://github.com/user-attachments/assets/89242c3b-63b6-40d7-9a01-946ada6ae2dc)
+![eduDesk (4)](https://github.com/user-attachments/assets/95e1c97f-38a2-4d42-8a74-c6c091ca18a0)
+
+Contributing
+Contributions are welcome! If you would like to contribute to EduDesk, please First send me a message at ayoub.elmeo@gmail.com and follow these steps:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/YourFeature).
+
+Commit your changes (git commit -m 'Add some feature').
+
+Push to the branch (git push origin feature/YourFeature).
+
+Open a pull request.
+
+Please adhere to the code of conduct guidelines when contributing.
+
+License
+This project is licensed under the MIT License.
+
+Contact
+For any questions, suggestions, or issues, please contact the project maintainer at ayoub.elmeo@gmail.com or visit the GitHub repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
